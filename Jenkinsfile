@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        bat 'docker --version && docker build -t portfolio .'
+        bat 'docker --version && docker build -t newimg .'
       }
     }
 
     stage('run') {
       steps {
-        bat ' docker rm -f portfolio-container >nul 2>&1 & docker run -d -p 8081:80 --name portfolio-container portfolio'
+        bat 'docker rm -f newlab >nul 2>&1 & docker run -d -p 8081:80 --name newlab newimg'
       }
     }
 
